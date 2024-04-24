@@ -56,7 +56,6 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicNameValuePair;
-import org.codehaus.groovy.runtime.DefaultGroovyMethods;
 import org.codehaus.groovy.runtime.MethodClosure;
 
 
