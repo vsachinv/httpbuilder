@@ -3,7 +3,7 @@
  */
 
 import groovyx.net.http.RESTClient
-import groovy.util.slurpersupport.GPathResult
+import groovy.xml.slurpersupport.GPathResult
 import static groovyx.net.http.ContentType.URLENC
 
 twitter = new RESTClient( 'https://twitter.com/statuses/' )

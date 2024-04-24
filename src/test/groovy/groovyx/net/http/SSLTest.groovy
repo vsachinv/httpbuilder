@@ -2,8 +2,8 @@ package groovyx.net.http
 
 import static groovyx.net.http.Method.HEAD
 
-import org.junit.Ignore
-import org.junit.Test
+import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
 import java.security.KeyStore
 
 import org.apache.http.conn.scheme.Scheme
@@ -16,7 +16,7 @@ public class SSLTest {
 
     def uri = "https://dev.java.net/" ;
 
-    @Ignore
+    @Disabled
     @Test public void testTrustedCert() {
         def http = new HTTPBuilder( uri )
 

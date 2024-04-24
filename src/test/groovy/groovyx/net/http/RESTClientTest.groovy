@@ -1,13 +1,12 @@
 package groovyx.net.http
 
-import org.junit.Ignore
-import org.junit.Test
-import org.junit.Before
-import junit.framework.Assert
-import groovy.util.slurpersupport.GPathResult
+import groovy.xml.slurpersupport.GPathResult
 import org.apache.http.params.HttpConnectionParams
-import static groovyx.net.http.ContentType.*
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
 
+import static groovyx.net.http.ContentType.*
 /**
  * @author tnichols
  *
@@ -18,7 +17,8 @@ public class RESTClientTest {
     static postID = null
     def userID = System.getProperty('twitter.user')
 
-    @Before public void setUp() {
+    @BeforeEach
+    public void setUp() {
         twitter = new RESTClient( 'https://api.twitter.com/1.1/statuses/' )
         twitter.auth.oauth System.getProperty('twitter.oauth.consumerKey'),
                 System.getProperty('twitter.oauth.consumerSecret'),
@@ -90,7 +90,7 @@ public class RESTClientTest {
         println "Test tweet ID ${resp.data.id} was deleted."
     }
 
-    @Ignore
+    @Disabled
     @Test public void testOptions() {
         // get a message ID then test which ways I can delete it:
         def resp = twitter.get( uri: 'http://twitter.com/statuses/user_timeline/httpbuilder.json' )

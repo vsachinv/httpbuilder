@@ -1,14 +1,14 @@
 package groovyx.net.http
-import groovy.util.slurpersupport.GPathResult
+import groovy.xml.slurpersupport.GPathResult
 import org.apache.http.client.HttpResponseException
-import org.junit.Ignore
-import org.junit.Test
-
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
+import groovy.xml.*
 import static groovyx.net.http.ContentType.*
 import static groovyx.net.http.Method.*
-import static org.junit.Assert.fail
 
-class HTTPBuilderTest {
+public class HTTPBuilderTest {
 
     def twitter = [ user: System.getProperty('twitter.user'),
                     consumerKey: System.getProperty('twitter.oauth.consumerKey'),
@@ -182,7 +182,7 @@ class HTTPBuilderTest {
         }
     }
 
-    @Ignore // twitter is returning a 401 for unknown reasons here
+    @Disabled // twitter is returning a 401 for unknown reasons here
     @Test public void testPlainURLEnc() {
         def http = new HTTPBuilder('https://api.twitter.com/1.1/statuses/')
 
@@ -265,7 +265,7 @@ class HTTPBuilderTest {
     /* http://googlesystem.blogspot.com/2008/04/google-search-rest-api.html
      * http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=Earth%20Day
      */
-    @Ignore
+    @Disabled
     @Test public void testJSON() {
 
         def builder = new HTTPBuilder()
@@ -333,12 +333,16 @@ class HTTPBuilderTest {
         catch ( IllegalArgumentException ex ) { /* Expected result */ }
     }
 
-    @Test(expected = IllegalArgumentException)
+    @Test
     public void testShouldThrowExceptionIfContentTypeIsNotSet() {
-        new HTTPBuilder( 'http://weather.yahooapis.com/forecastrss' ).request(POST) { request ->
-            body = [p:'02110',u:'f']
-        }
-        fail("request should have failed due to unset content type.")
+        HTTPBuilder httpBuilder = new HTTPBuilder("http://weather.yahooapis.com/forecastrss");
+
+        // Use a lambda expression for the request in JUnit 5
+        assertThrows(IllegalArgumentException.class, () -> {
+            httpBuilder.request(POST, request -> {
+                request.body([p: '02110', u: 'f']);
+            });
+        }, "request should have failed due to unset content type.");
     }
 
     @Test

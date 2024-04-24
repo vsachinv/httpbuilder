@@ -1,6 +1,6 @@
 package groovyx.net.http
 
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 
 /**

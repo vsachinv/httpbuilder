@@ -1,13 +1,15 @@
 package groovyx.net.http
 
-import org.junit.Ignore
-import org.junit.Test
+import groovy.xml.XmlSlurper
+import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.apache.http.client.HttpResponseException
 import static groovyx.net.http.ContentType.*
 import static groovyx.net.http.Method.*
 
-class HttpURLClientTest {
+public class HttpURLClientTest {
 
     def twitter = [ user: System.getProperty('twitter.user'),
                     consumerKey: System.getProperty('twitter.oauth.consumerKey'),
@@ -196,7 +198,7 @@ class HttpURLClientTest {
     /* http://googlesystem.blogspot.com/2008/04/google-search-rest-api.html
      * http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=Earth%20Day
      */
-    @Ignore
+    @Disabled
     @Test public void testJSON() {
 
         def http = new HttpURLClient()
@@ -231,8 +233,10 @@ class HttpURLClientTest {
         catch ( IllegalArgumentException ex ) { /* Expected exception */ }
     }
 
-    @Test(expected = SocketTimeoutException)
+    @Test()
     void testTimeout() {
-        new HttpURLClient(url: 'https://www.google.com/').request(timeout: 1)
+        assertThrows(SocketTimeoutException.class, () -> {
+            new HttpURLClient(url: 'https://www.google.com/').request(timeout: 1)
+        });
     }
 }
