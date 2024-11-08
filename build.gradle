@@ -71,6 +71,15 @@ tasks.withType(Javadoc) {
 publishing {
     repositories {
         maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/jgritman/httpbuilder")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+        maven {
+            name = "NexusRepo"
             credentials {
                 username project.findProperty("nexusUsername") ?: System.getenv("NEXUS_USERNAME")
                 password project.findProperty("nexusPassword") ?: System.getenv("NEXUS_PASSWORD")
