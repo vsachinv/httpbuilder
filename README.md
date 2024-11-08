@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.jgritman:httpbuilder:1.0-M1'
+    compile 'com.github.jgritman:httpbuilder:1.0-M1-snapshot'
 }
 ```
 
@@ -34,6 +34,10 @@ repositories {
                 password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
             }
         }
+    }
+    
+    dependencies {
+        compile 'org.codehaus.groovy.modules.http-builder:http-builder:1.0-M1-snapshot'
     }
 
 ```
