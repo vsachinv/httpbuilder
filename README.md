@@ -1,4 +1,4 @@
-##HTTPBuilder = Easy HTTP client for Groovy.
+## HTTPBuilder = Easy HTTP client for Groovy.
 
 Build Instructions:
 
@@ -8,7 +8,7 @@ Build Instructions:
 
 Documentation: https://github.com/jgritman/httpbuilder/wiki
 
-###Installation
+### Installation
 Add dependency to your build.gradle
 
 ```
@@ -39,7 +39,7 @@ repositories {
 ```
 
 
-Contributions:
+### Contributions:
 
  This project relies on the work of many open source projects including:
   * Groovy: http://groovy-lang.org
@@ -53,7 +53,7 @@ Contributions:
  re-distributed with permission from the author.
 
 
-License:
+### License:
 
  HTTPBuilder is copyright 2009-2011 Thomas Nichols except where otherwise noted.
 
