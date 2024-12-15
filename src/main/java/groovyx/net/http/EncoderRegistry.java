@@ -26,7 +26,7 @@ import groovy.lang.GString;
 import groovy.lang.Writable;
 import groovy.xml.StreamingMarkupBuilder;
 import groovyx.net.http.HTTPBuilder.RequestConfigDelegate;
-
+import org.codehaus.groovy.runtime.IOGroovyMethods;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -56,7 +56,6 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicNameValuePair;
-import org.codehaus.groovy.runtime.DefaultGroovyMethods;
 import org.codehaus.groovy.runtime.MethodClosure;
 
 
@@ -186,7 +185,7 @@ public class EncoderRegistry implements Iterable<Map.Entry<String,Closure>> {
             data = new BufferedReader( (Reader)data );
         if ( data instanceof BufferedReader ) {
             StringWriter out = new StringWriter();
-            DefaultGroovyMethods.leftShift( out, (BufferedReader)data );
+            IOGroovyMethods.leftShift( out, (BufferedReader)data );
 
             data = out;
         }

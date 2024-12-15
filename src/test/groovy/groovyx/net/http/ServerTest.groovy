@@ -1,10 +1,9 @@
-package groovyx.net.http;
+package groovyx.net.http
 
-import static groovyx.net.http.ContentType.*
-import static groovyx.net.http.Method.*
+import org.apache.http.params.HttpConnectionParams
+import org.junit.jupiter.api.Test
 
-import org.apache.http.params.HttpConnectionParams;
-import org.junit.Test;
+import static groovyx.net.http.ContentType.TEXT
 
 public class ServerTest {
     @Test

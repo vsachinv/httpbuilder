@@ -23,8 +23,8 @@ package groovyx.net.http;
 
 import groovy.json.JsonSlurper;
 import groovy.lang.Closure;
-import groovy.util.XmlSlurper;
-import groovy.util.slurpersupport.GPathResult;
+import groovy.xml.*;
+import groovy.xml.slurpersupport.GPathResult;
 import groovyx.net.http.HTTPBuilder.RequestConfigDelegate;
 
 import java.io.IOException;
@@ -276,7 +276,7 @@ public class ParserRegistry {
      */
     public Object parseJSON( HttpResponse resp ) throws IOException {
         // there is a bug in the JsonSlurper.parse method...
-        //String jsonTxt = DefaultGroovyMethods.getText( parseText( resp ) );
+        //String jsonTxt = IOGroovyMethods.getText( parseText( resp ) );
         return new JsonSlurper().parse( parseText( resp ) );
     }
 

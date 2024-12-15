@@ -153,7 +153,7 @@ public class AuthConfig {
     }
 
     /**
-     * </p>OAuth sign all requests.  Note that this currently does <strong>not</strong>
+     * <p>OAuth sign all requests.  Note that this currently does <strong>not</strong>
      * wait for a <code>WWW-Authenticate</code> challenge before sending the
      * the OAuth header.  All requests to all domains will be signed for this
      * instance.</p>
