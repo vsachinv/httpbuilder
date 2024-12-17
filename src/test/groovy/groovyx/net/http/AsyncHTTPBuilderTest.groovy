@@ -50,7 +50,7 @@ public class AsyncHTTPBuilderTest {
             true
         }
 
-        done << http.get(path:'/httpcomponents-core-dev/') { resp, html ->
+        done << http.get(path:'/httpcomponents-core-5.3.x/') { resp, html ->
             println "${Thread.currentThread().name} response 3"
             true
         }
@@ -142,7 +142,7 @@ public class AsyncHTTPBuilderTest {
             assert false
         }
         catch ( ExecutionException ex ) {
-            assert ex.cause.getClass() == ConnectTimeoutException
+            assert ex.cause.getClass() == SocketTimeoutException
         }
     }
 @Disabled("failing / review if it's due to groovy update ")

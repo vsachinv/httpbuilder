@@ -21,6 +21,7 @@
         <m2st.version>2.0</m2st.version>
         <m2st-gatc-id>UA-11299971-1</m2st-gatc-id>
         <m2st-gatc-config>_setDetectTitle(true)</m2st-gatc-config>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
     </properties>
 
     <dependencies>

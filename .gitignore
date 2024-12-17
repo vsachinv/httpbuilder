@@ -1,3 +1,9 @@
 target/
 *.iml
 .idea/
+/.apt_generated/
+/.apt_generated_tests/
+.gradle/
+.classpath
+.project
+.settings/
